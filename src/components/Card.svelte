@@ -1,7 +1,22 @@
----
-import DiceButton from "./DiceButton.astro";
-import Divider from "./Divider.astro";
----
+<script>
+  import DiceButton from "~/components/DiceButton.svelte";
+  import Divider from "~/components/Divider.svelte";
+</script>
+
+<section class="card">
+  <h1 class="advice-number">Advice #117</h1>
+  <p class="quote">
+    "It is easy to sit up and take notice, what's difficult is getting up and
+    taking action."
+  </p>
+
+  <div class="divider-wrapper">
+    <Divider className="divider" />
+  </div>
+  <div class="dice-button-wrapper">
+    <DiceButton />
+  </div>
+</section>
 
 <style>
   .card {
@@ -33,22 +48,14 @@ import Divider from "./Divider.astro";
     letter-spacing: -0.2571428716182709px;
   }
 
-  .divider {
+  .divider-wrapper {
     margin-bottom: 64px;
   }
 
-  .dice-button {
+  .dice-button-wrapper {
     position: absolute;
     bottom: -32px;
     margin: 0 auto;
     left: calc(50% - 32px);
-
   }
 </style>
-
-<section class="card">
-  <h1 class="advice-number">Advice #117</h1>
-  <p class="quote">"It is easy to sit up and take notice, what's difficult is getting up and taking action."</p>
-  <Divider className="divider" />
-  <DiceButton className="dice-button" />
-</section>

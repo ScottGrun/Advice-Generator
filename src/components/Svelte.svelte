@@ -1,6 +1,15 @@
----
-const { className } = Astro.props;
----
+<script lang="ts">
+  let className: string;
+</script>
+
+<div class={`wrapper ${className}`}>
+  <div class="horizontal-bar" />
+  <div class="vertical-bar-wrapper">
+    <div class="vertical-bar" />
+    <div class="vertical-bar" />
+  </div>
+  <div class="horizontal-bar" />
+</div>
 
 <style>
   .wrapper {
@@ -29,12 +38,3 @@ const { className } = Astro.props;
     gap: 8px;
   }
 </style>
-
-<div class={`wrapper ${className}`}>
-  <div class="horizontal-bar"></div>
-  <div class="vertical-bar-wrapper">
-    <div class="vertical-bar"></div>
-    <div class="vertical-bar"></div>
-  </div>
-  <div class="horizontal-bar"></div>
-</div>
