@@ -13,7 +13,9 @@
     "@astrojs/svelte": "^0.5.1",
     "astro": "^1.0.0-rc.3",
     "svelte": "^3.49.0",
-    "typescript": "^4.0.0",
-    "wrangler": "^2.0.23"
+    "typescript": "^4.0.0"
+  },
+  "dependencies": {
+    "@fontsource/manrope": "^4.5.10"
   }
 }

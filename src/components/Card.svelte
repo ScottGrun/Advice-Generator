@@ -1,31 +1,25 @@
 <script lang="ts">
+  import { fetchAdvice } from "src/helpers/fetchAdvice";
+
   import DiceButton from "~/components/DiceButton.svelte";
   import Divider from "~/components/Divider.svelte";
-  import { AdviceApiResponse } from "~/types/customTypes";
 
-  let adviceText: string;
-  let adviceNumber: string;
-
-  const fetchAdvice = async (): Promise<AdviceApiResponse> => {
-    const url = "https://api.adviceslip.com/advice";
-    return await fetch(url).then((response) => response.json());
-  };
+  export let adviceText: string;
+  export let adviceNumber: string;
 
   const setAdvice = async (): Promise<void> => {
     const { slip } = await fetchAdvice();
     adviceText = slip.advice;
     adviceNumber = slip.id;
   };
-
-  setAdvice();
 </script>
 
 <section class="card">
   <h1 class="advice-number">Advice #{adviceNumber}</h1>
   {#key adviceNumber}
-    <p class="quote text-focus-in">
+    <q class="quote text-focus-in">
       {adviceText}
-    </p>
+    </q>
   {/key}
   <div class="divider-wrapper">
     <Divider />

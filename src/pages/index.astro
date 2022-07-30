@@ -1,13 +1,14 @@
 ---
 // Styles
-import '~/styles/reset.css'
+import "@fontsource/manrope/800.css"
 import '~/styles/global.css'
-
-let adviceText: string;
-let adviceNumber: string;
 
 // Components
 import Card from '~/components/Card.svelte';
+import { fetchAdvice } from 'src/helpers/fetchAdvice';
+
+// Fetch inital quote server side
+const { slip } = await fetchAdvice();
 ---
 
 <style>
@@ -51,7 +52,7 @@ import Card from '~/components/Card.svelte';
 <body>
 	<main class="main">
 		<div class="card-wrapper">
-			<Card client:load />
+			<Card client:idle adviceNumber={slip.id} adviceText={slip.advice} />
 		</div>
 	</main>
 </body>

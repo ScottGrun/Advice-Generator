@@ -1,5 +1,6 @@
 <script>
   export let onClick;
+  console.log();
 </script>
 
 <button on:click={() => onClick()}>
