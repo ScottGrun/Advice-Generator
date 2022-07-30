@@ -29,9 +29,4 @@
     cursor: pointer;
     transform: scale(0.95);
   }
-
-  button:hover > svg {
-    transition: all 300ms ease;
-    transform: rotate(45deg);
-  }
 </style>

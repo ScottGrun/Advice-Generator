@@ -1,16 +1,17 @@
-<script>
+<script lang="ts">
   import DiceButton from "~/components/DiceButton.svelte";
   import Divider from "~/components/Divider.svelte";
+  import { AdviceApiResponse } from "~/types/customTypes";
 
-  let adviceText = "";
-  let adviceNumber = "";
+  let adviceText: string;
+  let adviceNumber: string;
 
-  const fetchAdvice = async () => {
+  const fetchAdvice = async (): Promise<AdviceApiResponse> => {
     const url = "https://api.adviceslip.com/advice";
     return await fetch(url).then((response) => response.json());
   };
 
-  const setAdvice = async () => {
+  const setAdvice = async (): Promise<void> => {
     const { slip } = await fetchAdvice();
     adviceText = slip.advice;
     adviceNumber = slip.id;
