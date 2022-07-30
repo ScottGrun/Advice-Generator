@@ -10,9 +10,30 @@ import Card from '~/components/Card.svelte';
 <style>
 	.main {
 		display: grid;
-		place-content: center;
+		place-items: center;
 		height: 100vh;
+	}
+
+	.card-wrapper {
 		margin: 0 16px;
+	}
+
+
+	/* Media Queries */
+
+	/* Tablet Breakpoint */
+	@media (min-width: 768px) {
+		.card-wrapper {
+			width: 100%;
+			max-width: 500px;
+		}
+	}
+
+	/* Desktop Breakpoint */
+	@media (min-width: 1024px) {
+		.card-wrapper {
+			max-width: 600px;
+		}
 	}
 </style>
 
@@ -26,7 +47,9 @@ import Card from '~/components/Card.svelte';
 
 <body>
 	<main class="main">
-		<Card />
+		<div class="card-wrapper">
+			<Card client:load />
+		</div>
 	</main>
 </body>
 
